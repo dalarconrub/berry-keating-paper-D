@@ -1,0 +1,28 @@
+{
+  "title": "Empirical proof that Berry-Keating convergence implies the Riemann Hypothesis",
+  "description": "Source files, figures, and data for Paper D of the Berry-Keating / Riemann series.",
+  "upload_type": "publication",
+  "publication_type": "article",
+  "creators": [
+    {
+      "name": "Alarcon, David",
+      "affiliation": "Universidad Pablo de Olavide, Sevilla, Spain",
+      "orcid": ""
+    }
+  ],
+  "keywords": [
+    "Riemann zeta function",
+    "Berry-Keating conjecture",
+    "random matrix theory",
+    "GUE",
+    "Riemann Hypothesis"
+  ],
+  "license": "CC-BY-4.0",
+  "related_identifiers": [
+    {
+      "identifier": "26XX.DDDDD",
+      "relation": "isIdenticalTo",
+      "scheme": "arxiv"
+    }
+  ]
+}
