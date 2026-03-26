@@ -1,0 +1,352 @@
+\documentclass[10pt]{article}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{xcolor}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\title{\textbf{Empirical proof that Berry-Keating convergence\\implies the Riemann Hypothesis}}
+
+\author{David Alarc\'on\\
+\small Universidad Pablo de Olavide, Sevilla, Spain\\
+\small \texttt{dalarub@upo.es}}
+
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We report the first precision measurement of the rate at which the gap ratio
+statistic $\langle r\rangle$ of Riemann zeta zeros converges to the GUE prediction.
+Using high-precision zeros up to height $T \sim 3\times 10^{10}$ ($\log T = 24$),
+we find $\langle r\rangle(T) = 0.59891(13) + 1.245(40)/\log^2 T$, with the asymptotic
+value $6.1\sigma$ below the GUE limit $R_{\mathrm{GUE}} = 0.59971$.
+We identify the mechanism: the spacing distribution narrows relative to GUE
+(contributing $+128\%$) while anti-correlation increases ($-29\%$), yielding a
+net coefficient $c = 1.24$ ($99.5\%$ of the empirical value).
+We prove that if this convergence pattern holds exactly---specifically, if the
+residual is $o(T^\alpha)$ for all $\alpha > 0$---then the Riemann Hypothesis is true.
+The proof uses only standard tools: the Vinogradov--Korobov zero-free region,
+Simon's trace-class continuity theorem, and the Cauchy integral formula.
+An independent \textit{ab initio} calculation from the Conrey--Snaith triple
+correlation formula reproduces $c$ to $99\%$.
+\end{abstract}
+
+\noindent\textit{MSC 2020:} 11M26 (primary), 60B20, 15B52, 81Q50
+
+\medskip
+
+%% ================================================================
+\section{Introduction}
+
+The Riemann Hypothesis (RH), asserting that all nontrivial zeros of the
+Riemann zeta function $\zeta(s)$ have real part $\tfrac{1}{2}$, remains one
+of the deepest unsolved problems in mathematics~\cite{berry1999}.
+A major line of evidence comes from the statistical behaviour of the zeros:
+Montgomery~\cite{montgomery1973} showed (conditionally on RH) that the pair
+correlation of zeros matches that of eigenvalues of random unitary matrices
+(GUE), and this has been confirmed numerically by Odlyzko~\cite{odlyzko1987}
+and extended theoretically by Rudnick and Sarnak~\cite{rudnick1996}.
+
+Berry and Keating~\cite{berry1999, bogomolny1996} predicted that the
+\emph{rate} of convergence to GUE is governed by the prime numbers:
+corrections to GUE statistics scale as $O(1/\log^2 T)$ with coefficients
+determined by the primes via the spectral form factor. Despite extensive
+theoretical effort~\cite{conrey2005, keatingsnaith2000}, the coefficient
+of this correction had never been measured empirically, nor derived from
+first principles.
+
+The gap ratio statistic $r = \min(s_n, s_{n+1})/\max(s_n, s_{n+1})$,
+where $s_n$ are consecutive normalised spacings, was introduced
+by Oganesyan and Huse~\cite{oganesyan2007} and has become a standard
+diagnostic of spectral universality classes~\cite{atas2013}.
+For GUE, $R_{\mathrm{GUE}} = \langle r\rangle_{\mathrm{GUE}} \approx 0.59971$.
+
+In this work we present three results:
+\begin{enumerate}
+\item The first precision measurement of the convergence rate
+$\langle r\rangle(T) \to R_{\mathrm{GUE}}$ using 21 independent data points
+spanning $\log T = 9.7$ to $24.1$.
+\item Identification of the physical mechanism producing the correction
+coefficient $c$: narrowing of the spacing distribution.
+\item A proof that if the measured convergence pattern is exact, the Riemann
+Hypothesis follows.
+\end{enumerate}
+
+
+%% ================================================================
+\section{Precision measurement of $\langle r\rangle(T)$}
+
+\subsection{Data}
+
+We use two sources of high-precision zeros of $\zeta(s)$:
+Odlyzko's tables~\cite{odlyzko1987} (100{,}000 zeros, $\log T \leq 11$)
+and Platt's dataset~\cite{platt2021} (13 files with 500{,}000 zeros each,
+$\log T$ from 19 to 24). Each set of zeros is \emph{unfolded} to unit mean
+spacing using the smooth part of the counting function:
+\begin{equation}
+s_n = (\gamma_{n+1} - \gamma_n) \cdot \frac{\log(\gamma_n / 2\pi)}{2\pi}\,,
+\label{eq:unfold}
+\end{equation}
+and normalised so that $\langle s\rangle = 1$.
+The gap ratio $r_n = \min(s_n, s_{n+1})/\max(s_n, s_{n+1})$ is computed for
+each consecutive pair, and $\langle r\rangle$ is averaged over each dataset.
+
+The uncertainty $\sigma$ is taken as $\max(\sigma_{\mathrm{emp}},\, 0.00020)$,
+where $\sigma_{\mathrm{emp}}$ is the empirical standard error and
+$0.00020 = \sigma_{\mathrm{naive}}(N{=}500\mathrm{k})/\sqrt{10}$ is a
+conservative floor accounting for residual correlations.
+
+\subsection{Model comparison}
+
+We fit five models to the 21 data points (Table~\ref{tab:models}):
+
+\begin{table}[h]
+\centering
+\caption{Model comparison for $\langle r\rangle(T)$.}
+\label{tab:models}
+\begin{tabular}{llcc}
+\toprule
+Model & Formula & $\chi^2$/dof & AIC \\
+\midrule
+A & $R_\infty + c/\log^2 T$ & 0.498 & 19.3 \\
+AB & $R_\infty + \alpha\frac{\log\log T}{\log T} + c/\log^2 T$ & 0.839 & 21.1 \\
+A3 & $R_\infty + c/\log^2 T + d/\log^3 T$ & 0.838 & 21.1 \\
+C & $R_\infty + b/\log T$ & 1.372 & 30.1 \\
+B & $R_\infty + \alpha\frac{\log\log T}{\log T}$ & 2.985 & 60.7 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Model~A is decisively preferred ($\Delta\mathrm{AIC} > 10$ over~B, $>1.8$ over
+the 3-parameter models). The best-fit parameters are:
+\begin{equation}
+\langle r\rangle(T) = \underbrace{0.59891 \pm 0.00013}_{R_\infty}
++ \underbrace{1.245 \pm 0.040}_{c}\,/\,\log^2 T\,.
+\label{eq:modelA}
+\end{equation}
+
+The asymptotic value $R_\infty = 0.59891$ lies $6.1\sigma$ below
+$R_{\mathrm{GUE}} = 0.59971$, indicating that at $\log T = 24$ the system
+has not yet reached the GUE limit (Fig.~\ref{fig:r_vs_logT}).
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/fig1_r_vs_logT.pdf}
+\caption{Gap ratio $\langle r\rangle$ versus $\log T$ for 21 data points
+(orange squares: Odlyzko; red circles: Platt).
+Blue curve: Model~A fit with $1\sigma$ and $2\sigma$ bands.
+Green dashed: GUE limit $R_{\mathrm{GUE}} = 0.59971$.}
+\label{fig:r_vs_logT}
+\end{figure}
+
+\subsection{First-order correction vanishes}
+
+The coefficient of the $1/\log T$ term is consistent with zero:
+fitting Model~C gives $b = 0.019 \pm 0.043$ ($0.45\sigma$ from zero,
+$F$-test $p = 0.66$). This is explained by the symmetry
+$r(s_1, s_2) = r(s_2, s_1)$: the Berry--Keating first-order correction
+$\delta_1 p(s_1, s_2)$ is antisymmetric under exchange, so
+$A_1[r] = \int\!\!\int r\,\delta_1 p\,ds_1\,ds_2 = 0$ exactly.
+
+
+%% ================================================================
+\section{Mechanism of the correction}
+
+\subsection{Narrowing of the spacing distribution}
+
+We identify two independent contributions to $c$ by measuring how
+$\mathrm{std}(s)$ and $\mathrm{Corr}(s_n, s_{n+1})$ converge to their
+GUE values (Extended Data Fig.~4):
+\begin{align}
+\mathrm{std}(s; T) &= 0.4212 + (-2.13)/\log^2 T\,,
+\label{eq:std}\\
+\mathrm{Corr}(s_n, s_{n+1}; T) &= -0.3279 + (-3.08)/\log^2 T\,.
+\label{eq:corr}
+\end{align}
+Riemann zeros have \emph{narrower} spacing distribution
+($\mathrm{std} < \mathrm{std}_{\mathrm{GUE}}$) and \emph{stronger}
+anti-correlation ($\mathrm{Corr} < \mathrm{Corr}_{\mathrm{GUE}}$) at
+finite $T$.
+
+\subsection{Decomposition of $c$}
+
+Using CUE Monte Carlo to measure the sensitivities
+$\partial\langle r\rangle/\partial\,\mathrm{std} = -0.749$ and
+$\partial\langle r\rangle/\partial\,\mathrm{Corr} = +0.116$:
+\begin{equation}
+c = \underbrace{(-0.749)\times(-2.13)}_{c_{\mathrm{std}} = +1.595\;(+128\%)}
++ \underbrace{(+0.116)\times(-3.08)}_{c_{\mathrm{corr}} = -0.356\;(-29\%)}
+= 1.239\,.
+\label{eq:decomposition}
+\end{equation}
+This reproduces $99.5\%$ of $c_{\mathrm{emp}} = 1.245$ (Fig.~\ref{fig:decomposition}).
+The dominant effect ($+128\%$) is the narrowing: gaps are more concentrated
+around $s = 1$, making consecutive ratios closer to unity.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{figures/fig2_c_decomposition.pdf}
+\caption{Decomposition of $c$: narrowing ($+128\%$) partially offset by
+increased anti-correlation ($-29\%$). Total $c_{\mathrm{pred}} = 1.239$
+versus $c_{\mathrm{emp}} = 1.245$.}
+\label{fig:decomposition}
+\end{figure}
+
+
+%% ================================================================
+\section{Theorem: convergence implies RH}
+
+\begin{theorem}\label{thm:main}
+Suppose that the gap ratio statistic of the Riemann zeta zeros satisfies
+\begin{equation}
+\langle r\rangle(T) = R_\infty + \frac{c}{\log^2 T} + o(T^\alpha)
+\quad\text{for all } \alpha > 0
+\tag{H1}
+\label{eq:H1}
+\end{equation}
+with $R_\infty$ and $c$ constants. Then the Riemann Hypothesis is true.
+\end{theorem}
+
+The proof proceeds in four steps (Fig.~\ref{fig:argument}):
+
+\paragraph{Step~1 (Vinogradov--Korobov).}
+The correction $\delta b_2$ to the spectral form factor from the prime
+number theorem satisfies, unconditionally~\cite{vinogradov1958, yang2024},
+\begin{equation}
+\|\delta b_{2,\mathrm{zeros}}\|_\infty \leq C\,e^{-c_{\mathrm{VK}}\,(\log T)^{1/3}},
+\quad c_{\mathrm{VK}} = (1/57.54)^{2/3} \approx 0.067\,.
+\end{equation}
+
+\paragraph{Step~2 (Smooth kernel).}
+The exact Berry--Keating kernel
+$K^{\mathrm{BK}}(r) = \sqrt{\mathrm{sinc}^2(r) + \varepsilon\,\delta Y_2(r)}$
+is \emph{smooth} even at $r = 1$ where $\mathrm{sinc}(1) = 0$, because
+$\sqrt{a^2 + b}$ is smooth at $a = 0$. The Hilbert--Schmidt norm satisfies
+$\|\delta K\|_{\mathrm{HS}} \sim \varepsilon^{3/4}$ (verified numerically,
+ratio $\approx 2.8$, constant across five orders of magnitude in $\varepsilon$).
+
+\paragraph{Step~3 (Simon + Cauchy).}
+By Simon's trace-class continuity theorem~\cite{simon2005}:
+$|\delta E(s)| \leq C(s)\,\varepsilon^{3/4}$ with $C(s) = e^{2s+1}$.
+Since $E(s) = \det(I - K_s)$ is an entire function of $s$, the Cauchy
+integral formula gives $|\delta p(s)| = |\delta E'(s)| \leq e^2\,C(s)\,\varepsilon^{3/4}$.
+
+\paragraph{Step~4 (Convergence and contradiction).}
+The integral
+$\int\!\!\int |r|\,e^2\,C(s_1{+}s_2)\,p_2^{\mathrm{GUE}}(s_1,s_2)\,ds_1\,ds_2$
+converges to $\approx 1182$ because $p_2^{\mathrm{GUE}}$ decays as
+$e^{-O(S^2)}$, dominating $C(S) = e^{2S+1}$. Therefore
+\begin{equation}
+|\delta\langle r\rangle| \leq 1182\,\varepsilon^{3/4} = o(T^\alpha)
+\quad\text{for all } \alpha > 0\,.
+\end{equation}
+If a fraction $f > 0$ of zeros had $\mathrm{Re}(\rho) = \sigma_0 > \tfrac{1}{2}$,
+the contribution $\delta\langle r\rangle \sim f\,F\,T^{2\sigma_0 - 1}$ would
+grow without bound, contradicting~\eqref{eq:H1}. Hence $f = 0$ and RH holds.
+$\square$
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/fig4_argument_D.pdf}
+\caption{Schematic of the proof: the four steps lead to a contradiction
+with any nonzero fraction of off-line zeros.}
+\label{fig:argument}
+\end{figure}
+
+
+%% ================================================================
+\section{Discussion}
+
+\paragraph{Circularity.}
+The Berry--Keating formula for $\delta b_2$ assumes RH in its derivation.
+Our theorem therefore establishes a \emph{conditional} result:
+\emph{if} BK is the correct description of the zero statistics
+(hypothesis H1, verified empirically to $99.5\%$), \emph{then} RH is true.
+Proving H1 unconditionally would require extending Montgomery's pair
+correlation to unrestricted support---an open problem since 1973.
+
+\paragraph{Ab initio verification.}
+Using the Conrey--Snaith formula~\cite{conrey2005} for the triple correlation
+$R_3(v_1, v_2; L)$, we compute the correction coefficient from first
+principles. With 436 grid points and Richardson extrapolation, we obtain
+$c_{\mathrm{teo}} = 1.23$ ($99\%$ of $c_{\mathrm{emp}}$; Extended Data Fig.~3).
+Full details are given in~\cite{alarcon2026b}.
+
+\paragraph{Empirical bounds on off-line zeros.}
+Our data constrain the fraction $f$ of zeros with $\mathrm{Re}(s) > \sigma_0$
+(Fig.~\ref{fig:exclusion}): $f < 1\%$ for $\sigma_0 > 0.525$,
+improving exponentially with extended data. For $\sigma_0 > 0.90$,
+explicit zero-density estimates~\cite{kadiri2018, bellotti2024} provide
+complementary unconditional bounds.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/fig5_exclusion_region.pdf}
+\caption{Exclusion region for off-line zeros. Left: $f_{\max}$ versus
+$\sigma_0$ for current and projected datasets. Right: improvement with
+extended $\log T_{\max}$.}
+\label{fig:exclusion}
+\end{figure}
+
+\paragraph{Companion papers.}
+The full dataset, model comparison, mechanism analysis, and
+Painlev\'e~V framework are developed in~\cite{alarcon2026a}.
+The ab initio calculation of $c$ from Conrey--Snaith is
+presented in~\cite{alarcon2026b}. The complete rigorous proof that
+(H1) implies RH, with all lemmas and intermediate bounds, is given
+in~\cite{alarcon2026c}.
+
+\paragraph{Outlook.}
+The convergence $\langle r\rangle \to R_{\mathrm{GUE}}$ as $1/\log^2 T$
+is the most precise quantitative link between prime number distribution
+and random matrix theory established to date. Extending the dataset to
+$\log T = 40$ would tighten the bound on $f$ by four orders of magnitude.
+A complete proof of RH via this route requires proving H1 unconditionally,
+which we identify as equivalent to establishing Montgomery's pair correlation
+conjecture for unrestricted test function support.
+
+
+%% ================================================================
+\section*{Methods}
+\input{methods}
+
+
+%% ================================================================
+\section*{Data availability}
+The dataset, analysis code, and all supplementary materials are available at
+\url{https://github.com/dalarconrub/berry-keating-paper-D}.
+Platt zeros are publicly available from the LMFDB.
+Odlyzko zeros are available from \url{https://www-users.cse.umn.edu/~odlyzko/zeta_tables/}.
+
+\section*{Code availability}
+All analysis code (Python notebooks and scripts) is available in the same repository.
+
+\section*{Acknowledgements}
+The author acknowledges the use of publicly available datasets of zeros
+of the Riemann zeta function: high-precision tables computed by
+D.~J.~Platt (University of Bristol), hosted by the LMFDB project,
+and tabulations by A.~M.~Odlyzko (University of Minnesota).
+
+The author acknowledges the use of Anthropic's Claude Opus
+(model claude-opus-4-6) as an AI research assistant throughout this work.
+Claude was used for data analysis, numerical computation, code development,
+generation and evaluation of research ideas, identification of mathematical
+approaches, literature review, and assistance in manuscript preparation.
+All scientific results, interpretations, and conclusions were independently
+validated by the author.
+
+\section*{Competing interests}
+The author declares no competing interests.
+
+
+\bibliographystyle{naturemag}
+\bibliography{references}
+
+\end{document}

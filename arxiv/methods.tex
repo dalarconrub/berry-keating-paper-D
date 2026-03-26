@@ -1,0 +1,62 @@
+%% Methods section for Nature paper
+
+\subsection*{Unfolding and gap ratio computation}
+
+Zeros $\gamma_n$ of $\zeta(\tfrac{1}{2} + i\gamma)$ are unfolded to unit mean
+spacing via the smooth counting function~\eqref{eq:unfold}.
+Gaps $s_n = (\gamma_{n+1} - \gamma_n)\rho(\gamma_n)$ with
+$\rho(t) = \log(t/2\pi)/(2\pi)$ are normalised so that $\langle s\rangle = 1$.
+Pathological gaps ($s < 0.02$ or $s > 6$) are excluded (fraction $< 0.1\%$).
+The gap ratio $r_n = \min(s_n, s_{n+1})/\max(s_n, s_{n+1})$ is averaged over
+each dataset.
+
+\subsection*{Uncertainty estimation}
+
+For the Platt data ($N = 500{,}000$ zeros each), the empirical standard error
+is $\sigma_{\mathrm{emp}} = \mathrm{std}(r_n)/\sqrt{N_{\mathrm{pairs}}}$.
+We impose a floor $\sigma_{\mathrm{floor}} = 0.00020$, corresponding to
+$\sigma_{\mathrm{naive}}(N{=}500\mathrm{k})/\sqrt{10}$, to account for
+residual correlations from the finite range of consecutive gaps used.
+The final uncertainty is $\sigma = \max(\sigma_{\mathrm{emp}},\, \sigma_{\mathrm{floor}})$.
+
+\subsection*{Model fitting}
+
+All models are fit using weighted least squares with
+$\chi^2 = \sum_i [(r_i - r_{\mathrm{model}}(\log T_i))/\sigma_i]^2$.
+AIC is computed as $\chi^2 + 2k$ where $k$ is the number of parameters.
+Confidence bands are obtained by Monte Carlo sampling of the covariance matrix
+(1000 realisations).
+
+\subsection*{Sensitivity analysis (CUE Monte Carlo)}
+
+The sensitivities $\partial\langle r\rangle/\partial\,\mathrm{std}$ and
+$\partial\langle r\rangle/\partial\,\mathrm{Corr}$ are measured from
+Circular Unitary Ensemble (CUE) matrices of size $N = 2000$:
+\begin{itemize}
+\item Method~A (std): rescale $s' = 1 + \lambda(s-1)$ to change std without
+changing correlation.
+\item Method~B (Corr): shuffle a fraction of $s_2$ values to change correlation
+without changing std.
+\end{itemize}
+
+\subsection*{Fredholm determinant and $p_2^{\mathrm{GUE}}$}
+
+The gap probability $E(s) = \det(I - K_s)$ is computed via Gauss--Legendre
+quadrature with $n_{\mathrm{quad}} = 32$ nodes~\cite{bornemann2010}.
+The joint density of two consecutive gaps $p_2(s_1, s_2)$ uses the
+three-point Schur complement formula:
+\begin{equation}
+p_2(s_1, s_2) = \det_3(0, s_1, S) \times E^{(0, s_1, S)}(S)
+\end{equation}
+where $E^{(0, s_1, S)}$ is the Fredholm determinant of the conditional kernel
+obtained by Schur complement of the $3\times 3$ Gram matrix.
+
+\subsection*{Conrey--Snaith triple correlation}
+
+The ab initio calculation of $c$ uses the Conrey--Snaith formula for
+$R_3(v_1, v_2; L)$ with $L = \log(T/2\pi)$, evaluated at 436 grid points
+$(v_1, v_2) \in [0.3, 2.5]^2$ with step $0.1$ and $L \in \{18, 22, 26, 30, 34\}$.
+The expansion $\delta R_3 = a/L + b/L^2$ is fit by least squares, and the
+$a/L$ term is eliminated by Richardson extrapolation using the pair $(L_1, L_2) = (18, 26)$.
+The coefficient $c$ is obtained by integrating $b(v_1, v_2)/R_3^{\mathrm{GUE}}(v_1, v_2)$
+against $r(s_1, s_2)\,p_2^{\mathrm{GUE}}(s_1, s_2)$ using linear griddata interpolation.
