@@ -1,0 +1,39 @@
+# Dataset v6 — 21 puntos únicos de ⟨r⟩(T)
+# Proyecto Berry-Keating / Riemann — estadística de gaps
+#
+# Columnas:
+#   logT      = log(T) donde T es la altura en la línea crítica
+#   r         = ⟨r⟩ medido (ratio min/max de gaps consecutivos, normalizado)
+#   sigma     = incertidumbre de r (max de sigma_emp y sigma_floor=0.00020)
+#   src       = fuente: orig (logT<19, N=50k) o grid (logT>=19, N=500k)
+#
+# Modelo ganador A: r(T) = R_inf + c/log²(T)
+#   R_inf = 0.59891 ± 0.00013  (6.1σ debajo de R_GUE = 0.59971)
+#   c     = 1.24456 ± 0.03981
+#   χ²/dof = 0.498 (9.46/19)
+#
+# Funciones de unfolding y medición: src/platt_zeros.py, notebooks/platt_analisis.ipynb
+# Referencia: CLAUDE.md sección "DATASET FINAL — v6"
+#
+# logT        r        sigma    src
+  9.7360   0.61188   0.00060   orig
+ 10.0030   0.61132   0.00060   orig
+ 10.6650   0.61012   0.00060   orig
+ 12.4320   0.60683   0.00029   orig
+ 14.7550   0.60472   0.00060   orig
+ 15.9970   0.60488   0.00094   orig
+ 17.2120   0.60344   0.00076   orig
+ 18.4120   0.60347   0.00048   orig
+ 19.0031   0.60265   0.00020   grid
+ 19.2043   0.60215   0.00022   grid
+ 19.4036   0.60208   0.00020   grid
+ 19.6025   0.60203   0.00024   grid
+ 19.8005   0.60196   0.00028   grid
+ 20.0010   0.60221   0.00044   grid
+ 20.2003   0.60190   0.00020   grid
+ 20.3988   0.60187   0.00020   grid
+ 20.4104   0.60180   0.00030   grid
+ 21.0036   0.60169   0.00029   grid
+ 22.0614   0.60154   0.00031   grid
+ 23.1151   0.60126   0.00030   grid
+ 24.1445   0.60101   0.00023   grid
