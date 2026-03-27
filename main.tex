@@ -29,13 +29,13 @@ we find $\langle r\rangle(T) = 0.59891(13) + 1.245(40)/\log^2 T$, with the asymp
 value $6.1\sigma$ below the GUE limit $R_{\mathrm{GUE}} = 0.59971$.
 We identify the mechanism: the spacing distribution narrows relative to GUE
 (contributing $+128\%$) while anti-correlation increases ($-29\%$), yielding a
-net coefficient $c = 1.24$ ($99.5\%$ of the empirical value).
+net coefficient $c_{\mathrm{pred}} = 1.239$ ($99.5\%$ of the empirical value).
 We prove that if this convergence pattern holds exactly---specifically, if the
 residual is $o(T^\alpha)$ for all $\alpha > 0$---then the Riemann Hypothesis is true.
 The proof uses only standard tools: the Vinogradov--Korobov zero-free region,
 Simon's trace-class continuity theorem, and the Cauchy integral formula.
-An independent \textit{ab initio} calculation from the Conrey--Snaith triple
-correlation formula reproduces $c$ to $99\%$.
+The Conrey--Snaith triple correlation formula decomposes $c$ into
+$c_{R_3} = -1.25$ and $c_E = +2.50$, with $c_{R_3} + c_E = c_{\mathrm{emp}}$.
 \end{abstract}
 
 
@@ -57,9 +57,9 @@ corrections to GUE statistics scale as $O(1/\log^2 T)$ with coefficients
 determined by the primes via the spectral form factor. Despite extensive
 theoretical effort~\cite{conrey2005, keatingsnaith2000}, the coefficient
 of this correction had never been measured empirically until now, and has
-only recently been derived \emph{ab initio} from the Conrey--Snaith
-triple correlation formula, yielding $c = 1.24$ ($99\%$
-agreement)~\cite{alarcon2026b}.
+only recently been decomposed into two channels via the Conrey--Snaith
+triple correlation formula: $c_{R_3} = -1.25$ (ab initio) and $c_E = +2.50$
+(by difference), with $c_{R_3} + c_E = c_{\mathrm{emp}}$~\cite{alarcon2026b}.
 
 The gap ratio statistic $r = \min(s_n, s_{n+1})/\max(s_n, s_{n+1})$,
 where $s_n$ are consecutive normalised spacings, was introduced
@@ -275,8 +275,9 @@ correlation to unrestricted support---an open problem since 1973.
 Using the Conrey--Snaith formula~\cite{conrey2005} for the triple correlation
 $R_3(v_1, v_2; L)$, we compute the correction coefficient from first
 principles. With 436 grid points and Richardson extrapolation, we obtain
-$c_{\mathrm{teo}} = 1.23$ ($99\%$ of $c_{\mathrm{emp}}$; Extended Data Fig.~3).
-Full details are given in~\cite{alarcon2026b}.
+$c_{R_3} = -1.25$ (\emph{ab initio}, triple correlation) and $c_E = +2.50$
+(gap probability, by difference), with $c_{R_3} + c_E = c_{\mathrm{emp}}$
+(Extended Data Fig.~3). Full details are given in~\cite{alarcon2026b}.
 
 \paragraph{Empirical bounds on off-line zeros.}
 Our data constrain the fraction $f$ of zeros with $\mathrm{Re}(s) > \sigma_0$
@@ -297,7 +298,7 @@ extended $\log T_{\max}$.}
 \paragraph{Companion papers.}
 The full dataset, model comparison, mechanism analysis, and
 Painlev\'e~V framework are developed in~\cite{alarcon2026a}.
-The ab initio calculation of $c$ from Conrey--Snaith is
+The two-channel decomposition of $c$ via Conrey--Snaith is
 presented in~\cite{alarcon2026b}. The complete rigorous proof that
 (H1) implies RH, with all lemmas and intermediate bounds, is given
 in~\cite{alarcon2026c}.
