@@ -48,14 +48,13 @@ pdflatex main.tex && bibtex main && pdflatex main.tex && pdflatex main.tex
 pdflatex supplementary.tex && pdflatex supplementary.tex
 ```
 
-## Related papers
+## Companion papers
 
-- **Paper A**: Gap ratio statistics of Riemann zeros — Comm. Math. Phys. — [GitHub](https://github.com/dalarconrub/berry-keating-paper-A)
-- **Paper B**: Ab initio derivation of the Berry-Keating correction coefficient — J. Number Theory — [GitHub](https://github.com/dalarconrub/berry-keating-paper-B)
-- **Paper C**: Berry-Keating spectral convergence rates and the Riemann Hypothesis — Annals of Mathematics — [GitHub](https://github.com/dalarconrub/berry-keating-paper-C)
-- **Paper D** (this paper): Empirical proof that Berry-Keating convergence implies the Riemann Hypothesis — Nature
-- **Paper E**: Spectral gap functions bounded below by band-limited functions — J. Fourier Anal. Appl. — [GitHub](https://github.com/dalarconrub/berry-keating-paper-E)
-- **Data & code**: [GitHub](https://github.com/dalarconrub/berry-keating-riemann)
+- **Paper A** — [DOI: 10.5281/zenodo.19268721](https://doi.org/10.5281/zenodo.19268721) — [GitHub](https://github.com/dalarconrub/berry-keating-paper-A)
+- **Paper B** — [DOI: 10.5281/zenodo.19268985](https://doi.org/10.5281/zenodo.19268985) — [GitHub](https://github.com/dalarconrub/berry-keating-paper-B)
+- **Paper C** — [DOI: 10.5281/zenodo.19267745](https://doi.org/10.5281/zenodo.19267745) — [GitHub](https://github.com/dalarconrub/berry-keating-paper-C)
+- **Paper E** — [DOI: 10.5281/zenodo.19268994](https://doi.org/10.5281/zenodo.19268994) — [GitHub](https://github.com/dalarconrub/berry-keating-paper-E)
+- **Data & code** — [GitHub](https://github.com/dalarconrub/berry-keating-riemann)
 
 ## License
 
