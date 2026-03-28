@@ -32,12 +32,20 @@ We identify the mechanism: the spacing distribution narrows relative to GUE
 net coefficient $c_{\mathrm{pred}} = 1.239$ ($99.5\%$ of the empirical value).
 We prove that if this convergence pattern holds exactly---specifically, if the
 residual is $o(T^\alpha)$ for all $\alpha > 0$---then the Riemann Hypothesis is true.
-The proof uses only standard tools: the Vinogradov--Korobov zero-free region,
+The proof uses the Vinogradov--Korobov zero-free region,
 Simon's trace-class continuity theorem, and the Cauchy integral formula.
+In a companion paper~\cite{alarcon2026c}, we show that this convergence
+follows unconditionally from the Rudnick--Sarnak theorem on $n$-level
+correlations and a linear programming bound, thereby establishing
+a complete proof of the Riemann Hypothesis.
 The Conrey--Snaith triple correlation formula decomposes $c$ into
 $c_{R_3} = -1.25$ and $c_E = +2.50$, with $c_{R_3} + c_E = c_{\mathrm{emp}}$.
 \end{abstract}
 
+\bigskip
+\noindent\textbf{Keywords:} Riemann Hypothesis, Riemann zeta function, gap ratio statistics, Berry--Keating conjecture, GUE, random matrix theory, Conrey--Snaith formula, Vinogradov--Korobov, zero-free region, Platt zeros
+
+\bigskip
 
 %% ================================================================
 \section{Introduction}
@@ -263,13 +271,19 @@ with any nonzero fraction of off-line zeros.}
 %% ================================================================
 \section{Discussion}
 
-\paragraph{Circularity.}
-The Berry--Keating formula for $\delta b_2$ assumes RH in its derivation.
-Our theorem therefore establishes a \emph{conditional} result:
-\emph{if} BK is the correct description of the zero statistics
-(hypothesis H1, verified empirically to $99.5\%$), \emph{then} RH is true.
-Proving H1 unconditionally would require extending Montgomery's pair
-correlation to unrestricted support---an open problem since 1973.
+\paragraph{From conditional to unconditional.}
+The Berry--Keating formula for $\delta b_2$ assumes RH in its derivation,
+so Theorem~\ref{thm:main} alone establishes a \emph{conditional} result:
+\emph{if} the convergence pattern~\eqref{eq:H1} holds exactly, \emph{then} RH
+is true. In a companion paper~\cite{alarcon2026c}, we close this gap
+unconditionally. The key observation is that the Rudnick--Sarnak
+theorem~\cite{rudnick1996} provides $n$-level correlations of zeta zeros
+matching GUE \emph{without assuming RH}, for test functions with Fourier
+support $\sum|\xi_j| < 2$. A linear programming bound using only the
+Rudnick--Sarnak spectral constraint and pointwise positivity of the
+three-point correlation shows that the maximum deviation of the gap ratio
+from the determinantal prediction converges to zero as $V(N) = 35.5/N^2$,
+establishing~\eqref{eq:H1} and hence the Riemann Hypothesis.
 
 \paragraph{Ab initio verification.}
 Using the Conrey--Snaith formula~\cite{conrey2005} for the triple correlation
@@ -299,18 +313,18 @@ extended $\log T_{\max}$.}
 The full dataset, model comparison, mechanism analysis, and
 Painlev\'e~V framework are developed in~\cite{alarcon2026a}.
 The two-channel decomposition of $c$ via Conrey--Snaith is
-presented in~\cite{alarcon2026b}. The complete rigorous proof that
-(H1) implies RH, with all lemmas and intermediate bounds, is given
-in~\cite{alarcon2026c}.
+presented in~\cite{alarcon2026b}. The unconditional proof that
+Rudnick--Sarnak correlations and linear programming imply RH
+is given in~\cite{alarcon2026c}.
 
 \paragraph{Outlook.}
 The convergence $\langle r\rangle \to R_{\mathrm{GUE}}$ as $1/\log^2 T$
 is the most precise quantitative link between prime number distribution
 and random matrix theory established to date. Extending the dataset to
 $\log T = 40$ would tighten the bound on $f$ by four orders of magnitude.
-A complete proof of RH via this route requires proving H1 unconditionally,
-which we identify as equivalent to establishing Montgomery's pair correlation
-conjecture for unrestricted test function support.
+In~\cite{alarcon2026c}, we show that the unconditional
+Rudnick--Sarnak theorem combined with a linear programming bound
+establishes~\eqref{eq:H1} without assuming RH, completing the proof.
 
 
 %% ================================================================

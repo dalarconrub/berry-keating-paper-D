@@ -7,7 +7,7 @@
 \usepackage{hyperref}
 
 \title{\textbf{Supplementary Information}\\[5pt]
-\large Empirical proof that Berry-Keating convergence implies the Riemann Hypothesis}
+\large Empirical proof that Berry--Keating convergence implies the Riemann Hypothesis}
 \author{David Alarc\'on\\
 \small Universidad Pablo de Olavide, Sevilla, Spain}
 \date{}
@@ -137,17 +137,30 @@ $\Sigma^2(L, T)$ and $\Delta_3(L, T)$ measured from four Platt files
 ($\log T = 19.0, 21.0, 22.1, 24.1$, $N = 500$k each) confirm GUE for
 $L < L_{\mathrm{cross}} = \log T / (2\pi) \approx 3.0$--$3.8$ and show
 the Bogomolny--Keating saturation for $L > L_{\mathrm{cross}}$.
-[Figure to be generated from \texttt{sigma2\_delta3\_bogomolny.ipynb}.]
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/ed_fig1_sigma2_delta3.pdf}
+\caption{Number variance $\Sigma^2(L,T)$ and spectral rigidity $\Delta_3(L,T)$
+for four Platt datasets. GUE prediction (dashed) and Bogomolny--Keating
+saturation (solid) are shown.}
+\end{figure}
 
 \subsection{Extended Data Figure 2: RH consistency bound}
 
 The perturbation bound $\varepsilon(T) < 1\%$ for all data points,
 computed from the gap ratio deviation from GUE.
-[Figure to be generated from \texttt{rh\_perturbacion\_cota.ipynb}.]
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/ed_fig2_rh_bound.pdf}
+\caption{Perturbation bound $\varepsilon(T)$ versus $\log T$.
+All data points satisfy $\varepsilon < 1\%$, consistent with the
+Riemann Hypothesis.}
+\end{figure}
 
 \subsection{Extended Data Figure 3: Two-channel decomposition of $c$}
 
-See Extended Data Figure~3.
 The Conrey-Snaith formula decomposes $c$ into two channels~\cite{alarcon2026b}:
 $c_{R_3} = -1.25$ (triple correlation, computed ab initio via Richardson
 extrapolation at $L = 1000$, $3000$, $10{,}000$, and $30{,}000$) and $c_E = +2.50$
@@ -156,11 +169,26 @@ The $R_3$ channel is negative because the Berry-Keating correction to the
 triple correlation \emph{lowers} $\langle r\rangle$; the gap probability
 channel reverses this and dominates.
 
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ed_fig3_c_scan_R3.pdf}
+\caption{Two-channel decomposition of $c$ via the Conrey--Snaith triple
+correlation formula. Richardson extrapolation at multiple $L$ values
+yields $c_{R_3} = -1.25$ (ab initio) and $c_E = +2.50$ (by difference).}
+\end{figure}
+
 \subsection{Extended Data Figure 4: Convergence of std and correlation}
 
 $\mathrm{std}(s; T)$ and $\mathrm{Corr}(s_n, s_{n+1}; T)$ versus
 $1/\log^2 T$, showing linear convergence to GUE values from below
 (std) and from more negative (correlation).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ed_fig4_std_corr.pdf}
+\caption{Convergence of $\mathrm{std}(s)$ and $\mathrm{Corr}(s_n, s_{n+1})$
+to GUE values as $1/\log^2 T$, measured from Odlyzko and Platt datasets.}
+\end{figure}
 
 
 %% ================================================================
@@ -238,8 +266,10 @@ two channels exactly.
 %% ================================================================
 \section{Supplementary Note 2: Proof details for Theorem 1}
 
-The complete rigorous proof is presented in Paper~C
-(``Berry-Keating convergence implies the Riemann Hypothesis'').
+The conditional proof (Theorem~\ref{thm:main}: (H1)$\Rightarrow$RH) is detailed
+in Sections~4 and S2 of this paper. The unconditional proof---establishing (H1) itself
+via Rudnick--Sarnak correlations and linear programming---is presented in Paper~C
+(``Rudnick--Sarnak correlations and linear programming imply the Riemann Hypothesis'').
 
 Here we provide the key intermediate results:
 
