@@ -6,13 +6,13 @@
 \contentsline {section}{\numberline {2}Extended Data Figures}{2}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Extended Data Figure 1: Number variance and spectral rigidity}{2}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Extended Data Figure 2: RH consistency bound}{3}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Extended Data Figure 3: Ab initio $c$ versus $R_3$ threshold}{3}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.3}Extended Data Figure 3: Two-channel decomposition of $c$}{3}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Extended Data Figure 4: Convergence of std and correlation}{3}{subsection.2.4}%
-\contentsline {section}{\numberline {3}Supplementary Note 1: Perturbative approaches to $c$ (29 attempts)}{3}{section.3}%
+\contentsline {section}{\numberline {3}Supplementary Note 1: Perturbative approaches to $c$ (35 attempts)}{3}{section.3}%
 \contentsline {paragraph}{Obstruction 1: $\mathrm {sinc}(1) = 0$.}{3}{section*.2}%
-\contentsline {paragraph}{Obstruction 2: Sign.}{3}{section*.3}%
+\contentsline {paragraph}{Obstruction 2: Sign.}{4}{section*.3}%
 \contentsline {paragraph}{Obstruction 3: $O(\sqrt {T})$ cancellation.}{4}{section*.4}%
 \contentsline {paragraph}{Resolution.}{4}{section*.5}%
 \contentsline {section}{\numberline {4}Supplementary Note 2: Proof details for Theorem 1}{4}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Lemma: $\|\delta K^{\mathrm {exact}}\|_{\mathrm {HS}} \sim \varepsilon ^{3/4}$}{4}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Propagation bound}{4}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.2}Propagation bound}{5}{subsection.4.2}%
