@@ -50,11 +50,13 @@ pdflatex main.tex && bibtex main && pdflatex main.tex && pdflatex main.tex
 pdflatex supplementary.tex && pdflatex supplementary.tex
 ```
 
-## Companion papers
+## Related papers
 
-- **Paper A** (Comm. Math. Phys.): Full dataset, model comparison, mechanism analysis
-- **Paper B** (J. Number Theory): Ab initio derivation of c from Conrey-Snaith R3
-- **Paper C** (PNAS): Unconditional proof: RS correlations + LP imply RH
+- **Paper A**: Gap ratio statistics of Riemann zeros — Comm. Math. Phys. — [GitHub](https://github.com/dalarconrub/berry-keating-paper-A)
+- **Paper B**: Ab initio derivation of the Berry-Keating correction coefficient — J. Number Theory — [GitHub](https://github.com/dalarconrub/berry-keating-paper-B)
+- **Paper C**: Berry-Keating spectral convergence rates and the Riemann Hypothesis — Annals of Mathematics — [GitHub](https://github.com/dalarconrub/berry-keating-paper-C)
+- **Paper D** (this paper): Empirical proof that Berry-Keating convergence implies the Riemann Hypothesis — Nature
+- **Data & code**: [GitHub](https://github.com/dalarconrub/berry-keating-riemann)
 
 ## License
 
