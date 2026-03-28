@@ -1,4 +1,5 @@
 # Berry-Keating convergence of Riemann zero spectral statistics implies the Riemann Hypothesis
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19268989.svg)](https://doi.org/10.5281/zenodo.19268989)
 
 **Author:** David Alarcon, Universidad Pablo de Olavide, Sevilla, Spain
 
