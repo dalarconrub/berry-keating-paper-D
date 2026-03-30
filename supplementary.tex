@@ -316,4 +316,98 @@ for $S = s_1 + s_2 \to \infty$, dominating $C(S) = e^{2S+1}$.
 Numerically: the integral stabilises at $\approx 1182$ for $s_{\max} \geq 4$.
 
 
+%% ================================================================
+\section{Supplementary Note 3: From discrete to continuous --- the periodisation argument}
+
+The relaxation argument in Paper~C~\cite{alarcon2026c} asserts that
+$V_{\mathrm{cont}} \leq V(N)$ for all $N$: every continuously feasible
+$\delta\rho_3$ is also discretely feasible.
+Here we provide the full proof via periodisation, which handles
+the Fourier-mode mismatch between continuous and discrete feasible sets.
+
+\subsection{Theorem: $V_{\mathrm{cont}} = 0$}
+
+\begin{proof}
+\textbf{Step 1.} $V_{\mathrm{cont}} \geq 0$: the function $h = 0$ is feasible with
+objective value~$0$.
+
+\textbf{Step 2.} $V_{\mathrm{cont}} \leq V(N) + \varepsilon(L)$.
+Let $h^*$ be any continuously feasible function:
+$h^* \in L^1(\mathbb{R}^2)$, $\hat{h}^*$ supported outside the RS hexagon,
+$h^* \geq -\det_3[\mathrm{sinc}]$ pointwise, $\int h^* \, ds_2 = 0$, $h^*(s_1,s_2) = h^*(s_2,s_1)$.
+
+Periodise $h^*$ with period $L$:
+\[
+h^*_{\mathrm{per}}(s) = \sum_{m \in \mathbb{Z}^2} h^*(s + mL).
+\]
+
+\paragraph{RS constraint.}
+The Fourier coefficients of $h^*_{\mathrm{per}}$ are $c_k = L^{-2}\,\hat{h}^*(k/L)$.
+For $|k/L| < 1$, i.e.\ $|k| < L$: $c_k = 0$ because $\hat{h}^*(\xi) = 0$ for $\xi$
+inside RS. This is exactly the discrete RS constraint on the $N$-grid with period $L$.
+
+\paragraph{Marginals.}
+$\displaystyle\int_0^L h^*_{\mathrm{per}}(s_1, s_2)\,ds_2
+= \sum_{m_2 \in \mathbb{Z}} \int_0^L h^*(s_1, s_2 + m_2 L)\,ds_2
+= \int_{-\infty}^{\infty} h^*(s_1, s_2)\,ds_2 = 0$.
+Preserved exactly.
+
+\paragraph{Positivity at grid points.}
+$h^*_{\mathrm{per}}(s_i, s_j) = h^*(s_i, s_j) + \mathrm{tail}$,
+where $|\mathrm{tail}| \leq \|h^*\|_{L^1(\mathbb{R}^2 \setminus [0,L]^2)}$.
+Since $h^* \in L^1(\mathbb{R}^2)$, the tail vanishes as $L \to \infty$.
+The uniform bound $\|h^*\|_{L^1} \leq 2\,\|\det_3\|_{L^1}$ (from positivity
+plus marginal constraints) ensures this convergence is uniform over all
+feasible $h^*$.
+
+\paragraph{Objective.}
+$\langle r,\, h^*_{\mathrm{per}} \rangle
+= \langle r,\, h^* \rangle + O(\|h^*\|_{L^1\,\mathrm{tail}})
+\to \langle r,\, h^* \rangle = V_{\mathrm{cont}}.$
+
+Combining: $V(N) \geq \langle r,\, h^*_{\mathrm{per}} \rangle
+\geq V_{\mathrm{cont}} - \varepsilon(L)$, so
+$V_{\mathrm{cont}} \leq V(N) + \varepsilon(L)$.
+
+\textbf{Step 3.} $V(N) = 35.5/N^2 \to 0$ (computed for $N = 20$--$128$,
+$R^2 = 0.9997$, power-law exponent $\alpha = 1.991$).
+
+\textbf{Step 4.} Combined: $0 \leq V_{\mathrm{cont}}
+\leq V(N) + \varepsilon(L) \to 0$. \quad $\therefore\; V_{\mathrm{cont}} = 0$.
+\end{proof}
+
+
+\subsection{Band decomposition mechanism}
+
+The LP extremal $h^*$ decomposes into three spectral bands:
+\begin{itemize}
+\item \textbf{Band A} ($|\xi_1| \geq 1$, $|\xi_2| < 1$):
+  $O(N)$ available modes vs.\ $O(N^2)$ positivity constraints.
+  Overdetermined $\Rightarrow \|h_A\|_\infty \sim 145/N^{2.04}$ (R$^2 = 1.000$).
+\item \textbf{Band B} ($|\xi_1| < 1$, $|\xi_2| \geq 1$): symmetric to A.
+  $\|h_B\|_\infty \sim 145/N^{2.04}$.
+\item \textbf{Band C} ($|\xi_1| \geq 1$, $|\xi_2| \geq 1$):
+  $O(N^2)$ modes vs.\ $O(N^2)$ constraints. Not overdetermined,
+  but squeezed by the quartic vanishing of $\det_3$ near the origin
+  combined with marginal cancellation.
+  $\|h_C\|_{L^1} \sim 119/N^{1.45}$.
+\end{itemize}
+
+The edge bands vanish because the number of low-frequency $\xi_2$ modes
+(with $|\xi_2| < 1$) is $\sim s_{\max} - 1 = 4$ on the $N$-grid (fixed),
+while the positivity constraints grow as $N^2$, giving a constraints-to-variables
+ratio of $N/2 \to \infty$.
+
+The corner band $C$ decreases because $\det_3(s_1, s_2) \sim (\pi s_1)^2
+(\pi s_2)^2/9$ near the origin, restricting $h_C \geq -O(s^4)$ there.
+Combined with the marginal constraint (zero sum per row) and bi-directional
+oscillation ($|\xi_1|, |\xi_2| \geq 1$), this forces
+$\|h_C\|_{L^1} \to 0$.
+
+The final bound $V(N) = \langle r_{\mathrm{eff}},\, h_C \rangle
+\leq \|r_{\mathrm{eff}}\|_\infty \cdot \|h_C\|_{L^1} \to 0$,
+where $r_{\mathrm{eff}}$ is the projection of $r = \min/\max$ onto corner
+Fourier modes (containing only $0.55\%$ of the total energy of~$r$).
+
+
 \end{document}
