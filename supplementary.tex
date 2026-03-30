@@ -1,6 +1,6 @@
 \documentclass[10pt]{article}
 \usepackage[margin=2.2cm]{geometry}
-\usepackage{amsmath,amssymb}
+\usepackage{amsmath,amssymb,amsthm}
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -269,10 +269,10 @@ two channels exactly.
 %% ================================================================
 \section{Supplementary Note 2: Proof details for Theorem 1}
 
-The conditional proof (Theorem~\ref{thm:main}: (H1)$\Rightarrow$RH) is detailed
-in Sections~4 and S2 of this paper. The unconditional proof---establishing (H1) itself
+The conditional proof (Theorem~1 of the main text: (H1)$\Rightarrow$RH) is detailed
+in Section~4 of the main paper. The unconditional proof---establishing (H1) itself
 via Rudnick--Sarnak correlations and linear programming---is presented in Paper~C
-(``Rudnick--Sarnak correlations and linear programming imply the Riemann Hypothesis'').
+(``Rudnick--Sarnak correlations and linear programming imply the Riemann Hypothesis''~\cite{alarcon2026c}).
 
 Here we provide the key intermediate results:
 
@@ -409,5 +409,16 @@ The final bound $V(N) = \langle r_{\mathrm{eff}},\, h_C \rangle
 where $r_{\mathrm{eff}}$ is the projection of $r = \min/\max$ onto corner
 Fourier modes (containing only $0.55\%$ of the total energy of~$r$).
 
+
+%% ================================================================
+\begin{thebibliography}{9}
+
+\bibitem{alarcon2026b}
+D.~Alarc\'on, \emph{Ab initio derivation of the Berry--Keating correction coefficient via the Conrey--Snaith triple correlation formula}, Preprint (2026). \textsc{doi}: \href{https://doi.org/10.5281/zenodo.19268981}{10.5281/zenodo.19268981}.
+
+\bibitem{alarcon2026c}
+D.~Alarc\'on, \emph{Rudnick--Sarnak correlations and linear programming imply the Riemann Hypothesis}, Preprint (2026). \textsc{doi}: \href{https://doi.org/10.5281/zenodo.19268985}{10.5281/zenodo.19268985}.
+
+\end{thebibliography}
 
 \end{document}
