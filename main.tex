@@ -349,8 +349,7 @@ $K^{\mathrm{BK}}(r) = \sqrt{\mathrm{sinc}^2(r)
 + \varepsilon\,\delta Y_2(r)}$
 where $\varepsilon = \|\delta b_2\| / \log^2 T$.
 A na\"ive linearisation $\delta K \approx \delta Y_2 / (2\,\mathrm{sinc})$
-diverges at $r = 1$ because $\mathrm{sinc}(1) = 0$; this obstruction
-blocked 30 previous perturbative approaches~\cite{alarcon2026a}.
+diverges at $r = 1$ because $\mathrm{sinc}(1) = 0$.
 However, the \emph{exact} kernel $\sqrt{a^2 + b}$ is smooth even at $a = 0$.
 The Hilbert--Schmidt norm satisfies (verified numerically over five
 decades in~$\varepsilon$):
@@ -459,17 +458,17 @@ with Richardson extrapolation, we decompose $c$ into $c_{R_3} = -1.6$
 (Extended Data Fig.~3). Full details in~\cite{alarcon2026b}.
 
 \paragraph{The $\sqrt{\cdot}$-regularisation.}
-The insight that the exact kernel
+The key insight of Step~2 is that the exact kernel
 $K^{\mathrm{BK}} = \sqrt{\mathrm{sinc}^2 + \varepsilon\,\delta Y_2}$ is
-smooth---resolving the $\mathrm{sinc}(1) = 0$ obstruction that blocked
-30 perturbative approaches---is key to Step~2.
-The linearised formula $\delta K = \delta Y_2/(2\,\mathrm{sinc})$ diverges
-at $r = 1$, but this is an artefact: $\sqrt{a^2 + b}$ is smooth at $a = 0$
+smooth even where $\mathrm{sinc}(1) = 0$. The linearised formula
+$\delta K = \delta Y_2/(2\,\mathrm{sinc})$ diverges at $r = 1$, but this
+is an artefact of Taylor expansion: $\sqrt{a^2 + b}$ is smooth at $a = 0$
 (Supplementary Note~2).
 
 \paragraph{Supplementary Information.}
-Extended Data Tables~1--4 and Figures~1--4, a catalogue of 35 perturbative
-approaches (Supplementary Note~1), proof details for Theorem~1
+Extended Data Tables~1--4 and Figures~1--4, analysis of the
+$\mathrm{sinc}(1) = 0$ obstruction and its resolution
+(Supplementary Note~1), proof details for Theorem~1
 (Supplementary Note~2), and the periodisation argument with band
 decomposition (Supplementary Note~3) are given in the Supplementary
 Information.
